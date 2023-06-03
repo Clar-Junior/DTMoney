@@ -35,7 +35,7 @@ const dataTransaction: DataTransactionType[] = [
         id: '1',
         title: 'Desenvolvimento de site',
         category: 'Vendas',
-        value: 12.003,
+        value: 17400.00,
         date: '13/04/2021',
         type: 'Entrada',
     },
@@ -51,7 +51,7 @@ const dataTransaction: DataTransactionType[] = [
         id: '3',
         title: 'Aluguel do apartamento',
         category: 'Casa',
-        value: 1.2009,
+        value: 1200.9,
         date: '27/03/2021',
         type: 'Saída',
     },
@@ -59,7 +59,7 @@ const dataTransaction: DataTransactionType[] = [
         id: '4',
         title: 'Aluguel do apartamento',
         category: 'Casa',
-        value: 1.2009,
+        value: 1200.9,
         date: '27/03/2021',
         type: 'Saída',
     },
@@ -67,7 +67,7 @@ const dataTransaction: DataTransactionType[] = [
         id: '5',
         title: 'Aluguel do apartamento',
         category: 'Casa',
-        value: 1.2009,
+        value: 1200.9,
         date: '27/03/2021',
         type: 'Saída',
     },
@@ -75,7 +75,7 @@ const dataTransaction: DataTransactionType[] = [
         id: '6',
         title: 'Aluguel do apartamento',
         category: 'Casa',
-        value: 1.2009,
+        value: 1200.9,
         date: '27/03/2021',
         type: 'Saída',
     },
@@ -101,7 +101,7 @@ export function HomeScreen() {
             if (currentValue.type === 'Entrada') {
                 return currentValue.value + accumaltor;
             }
-            return accumaltor;
+           return accumaltor;
         },0)
     }
     //Total de Despesas
@@ -115,6 +115,7 @@ export function HomeScreen() {
     }
     //Entradas - Saídas
     function onTotalBalance(){
+       
         return onTotalSumOfRevenue()- onTotalSumOfExpenses();
     }
 
