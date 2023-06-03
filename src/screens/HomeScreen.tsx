@@ -82,6 +82,8 @@ const dataTransaction: DataTransactionType[] = [
 ];
 
 export function HomeScreen() {
+    const [transaction, setTransaction] = useState(dataTransaction);
+
     const [visbleNewTransaction, setVisbleNewTransaction] =
         useState<boolean>(false);
 
@@ -93,12 +95,36 @@ export function HomeScreen() {
         setVisbleNewTransaction(true);
     }
 
+    //Total de Entradas
+    function onTotalSumOfRevenue(){
+        return transaction.reduce((accumaltor, currentValue) => {
+            if (currentValue.type === 'Entrada') {
+                return currentValue.value + accumaltor;
+            }
+            return accumaltor;
+        },0)
+    }
+    //Total de Despesas
+    function onTotalSumOfExpenses(){
+        return transaction.reduce((accumaltor, currentValue) => {
+            if (currentValue.type === 'Saída') {
+                return currentValue.value + accumaltor;
+            }
+            return accumaltor;
+        },0)
+    }
+    //Entradas - Saídas
+    function onTotalBalance(){
+        return onTotalSumOfRevenue()- onTotalSumOfExpenses();
+    }
+
+    
     // eslint-disable-next-line react/no-unstable-nested-components
     function ListHeaderComponent() {
         return (
             <HeaderTransactionList>
                 <TitleList>Transações</TitleList>
-                <AmountTransaction>08</AmountTransaction>
+                <AmountTransaction>{transaction.length} itens</AmountTransaction>
             </HeaderTransactionList>
         );
     }
@@ -134,17 +160,17 @@ export function HomeScreen() {
                         }}>
                         <BalanceCard
                             title="Entradas"
-                            value="R$ 17.400,00"
+                            value={onTotalSumOfRevenue().toString()}
                             description="Última entrada dia 13 de abril"
                         />
                         <BalanceCard
                             title="Saídas"
-                            value="R$ 17.400,00"
+                            value={onTotalSumOfExpenses().toString()}
                             description="Última entrada dia 13 de abril"
                         />
                         <BalanceCard
                             title="Total"
-                            value="R$ 17.400,00"
+                            value={String(onTotalBalance())}
                             description="Última entrada dia 13 de abril"
                         />
                     </ListBalance>
