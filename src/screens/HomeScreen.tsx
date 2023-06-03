@@ -110,6 +110,7 @@ export function HomeScreen() {
             if (currentValue.type === 'Saída') {
                 return currentValue.value + accumaltor;
             }
+            
             return accumaltor;
         },0)
     }
