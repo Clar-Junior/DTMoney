@@ -39,7 +39,7 @@ export function ModalNewTransaction({
                      <ModalButtonCloseLabel>x</ModalButtonCloseLabel>
                   </ModalButtonClose>
                </ModalHeader>
-               <ModalInput placeholder="Nome" />
+               <ModalInput placeholder="Nome"/>
 
                <ModalInput placeholder="Preço" />
 
